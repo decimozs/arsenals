@@ -1,19 +1,14 @@
-import java.util.*;
+import java.util.Arrays;
 
-class kata {
-  public static boolean check(Object[] a, Object x) {
-    for (Object i : a) {
-      if(i == x){
-        return true;
-      }
+public class Kata {
+  public static String howMuchILoveYou(int nb_petals) {
+    String[] letters = {"I love you", "a little", "a lot", "passionately", "madly","not at all"};
+    return letters[(nb_petals - 1) % letters.length];
     }
-
-    return false;
-  }
   public static void main(String[] args){
-    kata.check(new Object[] {66, 101}, 66);
-    kata.check(new Object[] {80, 117, 115, 104, 45, 85, 112, 115}, 45);
-    kata.check(new Object[] {'t', 'e', 's', 't'}, 'e');
-    kata.check(new Object[] {"what", "a", "great", "kata"}, "kat");
+    Kata.howMuchILoveYou(1);
+    Kata.howMuchILoveYou(2);
+    Kata.howMuchILoveYou(6);
   }
+
 }
