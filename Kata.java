@@ -1,34 +1,50 @@
 import java.util.*;
 
 class Kata {
-  public static int[] divisibleBy(int[] numbers, int divider) {
-    int size = numbers.length;
-    int count = 0;
+  public static int[] mergeArrays(int[] first, int[] second) {
+    if(first.length == 0 && second.length == 0){
+      return new int[0];
+    }
+
+    int[] result = new int[first.length + second.length];
     int index = 0;
 
-    for(int i = 0; i < size; i++){
-      if(numbers[i] % divider == 0){
-        count++;
+    for(int i = 0; i < first.length; i++){
+      result[index++] = first[i];
+    }
+
+    for(int i = 0; i < second.length; i++){
+      result[index++] = second[i];
+    }
+
+    for(int i = 0; i < result.length; i++){
+      for(int j = i + 1; j < result.length; j++){
+        if(result[i] > result[j]){
+          int temp = result[i];
+          result[i] = result[j];
+          result[j] = temp;
+        }
       }
     }
 
-    int[] result = new int[count];
-
-    for(int i = 0; i < size; i++){
-      if(numbers[i] % divider == 0){
-        result[index] = numbers[i];
-        index++;
+    index = 0;
+    for(int i = 0; i < result.length - 1; i++){
+      if(result[i] != result[i + 1]){
+        result[index++] = result[i];
       }
     }
-    
 
-    System.out.println(Arrays.toString(result));
-    return result;
-  }
+    result[index++] = result[result.length - 1];
+
+    int[] answer = Arrays.copyOf(result, index);
+
+    System.out.println(Arrays.toString(answer));
+
+    return answer;
+	}
   public static void main(String[] args){
-    Kata.divisibleBy(new int[] {1,2,3,4,5,6},2);
-    Kata.divisibleBy(new int[] {1,2,3,4,5,6},3);
-    Kata.divisibleBy(new int[] {0,1,2,3,4,5,6},4);
+    Kata.mergeArrays(new int[] { 1, 3, 5 }, new int[] { 2, 4, 6 });
+		Kata.mergeArrays(new int[] { 2, 4, 8 }, new int[] { 2, 4, 6 });
   }
 
 }
