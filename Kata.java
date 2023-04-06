@@ -1,50 +1,28 @@
 import java.util.*;
 
 class Kata {
-  public static int[] mergeArrays(int[] first, int[] second) {
-    if(first.length == 0 && second.length == 0){
-      return new int[0];
+  public static String oddOrEven (int[] array) {
+    int size = array.length;
+    int sum = 0;
+    
+    for(int i = 0; i < size; i++){
+      sum += array[i];
     }
 
-    int[] result = new int[first.length + second.length];
-    int index = 0;
-
-    for(int i = 0; i < first.length; i++){
-      result[index++] = first[i];
-    }
-
-    for(int i = 0; i < second.length; i++){
-      result[index++] = second[i];
-    }
-
-    for(int i = 0; i < result.length; i++){
-      for(int j = i + 1; j < result.length; j++){
-        if(result[i] > result[j]){
-          int temp = result[i];
-          result[i] = result[j];
-          result[j] = temp;
-        }
+    for(int i = 0; i < size; i++){
+      if(sum % 2 == 0){
+        System.out.println(sum);
+        System.out.println("odd");
+        return "even";
       }
     }
 
-    index = 0;
-    for(int i = 0; i < result.length - 1; i++){
-      if(result[i] != result[i + 1]){
-        result[index++] = result[i];
-      }
-    }
-
-    result[index++] = result[result.length - 1];
-
-    int[] answer = Arrays.copyOf(result, index);
-
-    System.out.println(Arrays.toString(answer));
-
-    return answer;
-	}
+    System.out.println(sum);
+    System.out.println("odd");
+    return "odd";
+  }
   public static void main(String[] args){
-    Kata.mergeArrays(new int[] { 1, 3, 5 }, new int[] { 2, 4, 6 });
-		Kata.mergeArrays(new int[] { 2, 4, 8 }, new int[] { 2, 4, 6 });
+    Kata.oddOrEven(new int[] {2, 5, 34, 6});
   }
 
 }
