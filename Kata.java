@@ -1,28 +1,25 @@
-import java.util.*;
 
 class Kata {
-  public static String oddOrEven (int[] array) {
-    int size = array.length;
-    int sum = 0;
-    
-    for(int i = 0; i < size; i++){
-      sum += array[i];
+  public static int findSmallest(int[] arr, String mode) {
+    int smallestIndex = 0;
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i] < arr[smallestIndex]) {
+            smallestIndex = i;
+        }
     }
-
-    for(int i = 0; i < size; i++){
-      if(sum % 2 == 0){
-        System.out.println(sum);
-        System.out.println("odd");
-        return "even";
-      }
+    if (mode.equals("index")) {
+        System.out.println(smallestIndex);
+        return smallestIndex;
+    } else {
+        System.out.println(arr[smallestIndex]);
+        return arr[smallestIndex];
     }
+}
 
-    System.out.println(sum);
-    System.out.println("odd");
-    return "odd";
-  }
   public static void main(String[] args){
-    Kata.oddOrEven(new int[] {2, 5, 34, 6});
+    Kata.findSmallest( new int [] {1, 2, 3} , "index");
+    Kata.findSmallest( new int [] {7, 12, 3, 2, 27} , "value");
+    Kata.findSmallest( new int [] {7, 12, 3, 2, 27} , "index");
   }
 
 }
