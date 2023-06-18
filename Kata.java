@@ -1,9 +1,8 @@
-import java.util.Arrays;
 
 class Kata {
   public static int[] flattenAndSort(int[][] array) {
     int size = array.length;
-
+    
     int length = 0;
     for(int i = 0; i < size; i++){
       length += array[i].length;
@@ -31,7 +30,6 @@ class Kata {
 
     return result;
 	}
-
 
   public static void main(String[] args){
     Kata.flattenAndSort(new int[][]{});

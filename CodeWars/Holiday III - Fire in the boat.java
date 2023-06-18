@@ -5,7 +5,7 @@ public class CodeWars {
     for(int i = 0; i < s.length(); i++){
         replace = s.replace("Fire", "~~");
     }
-    
     return replace;
   }
-}
+
+  
