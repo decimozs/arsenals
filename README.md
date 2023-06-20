@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/decimozs/arsenals/assets/106976520/bef88897-7401-4f90-ab8d-e73e2433be7c"/>
+  <img src="https://github.com/decimozs/arsenals/assets/106976520/dfaeb0c5-89b2-42c4-8e94-1d8bc223cf85"/>
   <p align="center">The repository houses my collection of source code for machine problems, encompassing my software engineering journey, experiences as a computer studies student, and preparations for programming competitions.
   </p>
   <h2 align="center">Practice Tool</h2>
@@ -16,5 +16,5 @@
 </p>
  
  
- 
+
 
